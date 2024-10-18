@@ -1,1 +1,1 @@
-/usr/bin/arm-none-eabi-g++ -specs=nosys.specs -T /home/jmaloney/Documents/rawClock/samd51/linker/samd51j20a_flash.ld -mthumb -mcpu=cortex-m4 CMakeFiles/rawclock.exe.dir/src/main.cpp.o CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o -o rawclock.exe 
+/usr/bin/arm-none-eabi-g++ -specs=nosys.specs -T /home/jmaloney/Documents/rawClock/samd51/linker/samd51j20a_flash.ld -mthumb -mcpu=cortex-m4 CMakeFiles/rawclock.exe.dir/src/main.cpp.o CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o -o rawclock.exe 

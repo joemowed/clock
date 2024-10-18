@@ -1,7 +1,10 @@
 int main() {
-    int i = 0;
-    while (i < 1000) {
-        i++;
+    volatile int i = 0;
+    while (true) {
+        while (i < 1000) {
+            i++;
+        }
+        i = 0;
     }
     return 0;
 }

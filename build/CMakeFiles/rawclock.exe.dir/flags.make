@@ -7,11 +7,11 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/jmaloney/Documents/rawClock/samd51 -I/home/jmaloney/Documents/rawClock/src/include
 
-C_FLAGS = -mthumb -mcpu=cortex-m4 -specs=nosys.specs -nolibc -nostdlib -Wl,--gc-sections,-specs=nosys.specs -O0 -g
+C_FLAGS = -mthumb -mcpu=cortex-m4 -specs=nosys.specs -Wl,--gc-sections -O0 -ggdb
 
 CXX_DEFINES = 
 
 CXX_INCLUDES = -I/home/jmaloney/Documents/rawClock/samd51 -I/home/jmaloney/Documents/rawClock/src/include
 
-CXX_FLAGS = -mthumb -mcpu=cortex-m4 -specs=nosys.specs -nolibc -nostdlib -Wl,--gc-sections,-specs=nosys.specs -O0 -g
+CXX_FLAGS = -mthumb -mcpu=cortex-m4 -specs=nosys.specs -Wl,--gc-sections -O0 -ggdb
 

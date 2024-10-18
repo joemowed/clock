@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jmaloney/Documents/rawClock/samd51/linker/startup_samd51.c" "CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o" "gcc" "CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o.d"
+  "/home/jmaloney/Documents/rawClock/samd51/startup_samd51.c" "CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o" "gcc" "CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o.d"
   "/home/jmaloney/Documents/rawClock/src/main.cpp" "CMakeFiles/rawclock.exe.dir/src/main.cpp.o" "gcc" "CMakeFiles/rawclock.exe.dir/src/main.cpp.o.d"
   )
 

@@ -83,30 +83,30 @@ CMakeFiles/rawclock.exe.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rawclock.exe.dir/src/main.cpp.s"
 	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jmaloney/Documents/rawClock/src/main.cpp -o CMakeFiles/rawclock.exe.dir/src/main.cpp.s
 
-CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o: CMakeFiles/rawclock.exe.dir/flags.make
-CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o: /home/jmaloney/Documents/rawClock/samd51/linker/startup_samd51.c
-CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o: CMakeFiles/rawclock.exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jmaloney/Documents/rawClock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o -MF CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o.d -o CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o -c /home/jmaloney/Documents/rawClock/samd51/linker/startup_samd51.c
+CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o: CMakeFiles/rawclock.exe.dir/flags.make
+CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o: /home/jmaloney/Documents/rawClock/samd51/startup_samd51.c
+CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o: CMakeFiles/rawclock.exe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jmaloney/Documents/rawClock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o -MF CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o.d -o CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o -c /home/jmaloney/Documents/rawClock/samd51/startup_samd51.c
 
-CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jmaloney/Documents/rawClock/samd51/linker/startup_samd51.c > CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.i
+CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jmaloney/Documents/rawClock/samd51/startup_samd51.c > CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.i
 
-CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jmaloney/Documents/rawClock/samd51/linker/startup_samd51.c -o CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.s
+CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jmaloney/Documents/rawClock/samd51/startup_samd51.c -o CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.s
 
 # Object files for target rawclock.exe
 rawclock_exe_OBJECTS = \
 "CMakeFiles/rawclock.exe.dir/src/main.cpp.o" \
-"CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o"
+"CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o"
 
 # External object files for target rawclock.exe
 rawclock_exe_EXTERNAL_OBJECTS =
 
 rawclock.exe: CMakeFiles/rawclock.exe.dir/src/main.cpp.o
-rawclock.exe: CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o
+rawclock.exe: CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o
 rawclock.exe: CMakeFiles/rawclock.exe.dir/build.make
 rawclock.exe: CMakeFiles/rawclock.exe.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jmaloney/Documents/rawClock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable rawclock.exe"

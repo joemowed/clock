@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o"
-  "CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o.d"
+  "CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o"
+  "CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o.d"
   "CMakeFiles/rawclock.exe.dir/src/main.cpp.o"
   "CMakeFiles/rawclock.exe.dir/src/main.cpp.o.d"
   "rawclock.exe"

@@ -26,8 +26,8 @@
  * \asf_license_stop
  *
  */
-
-#include "samd51.h"
+#define __SAMD51J20A__
+#include "include/samd51.h"
 
 /* Initialize segments */
 extern uint32_t _sfixed;

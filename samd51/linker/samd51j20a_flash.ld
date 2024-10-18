@@ -30,7 +30,6 @@
 
 OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
-SEARCH_DIR(.)
 
 /* Memory Spaces Definitions */
 MEMORY
@@ -43,8 +42,6 @@ MEMORY
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */
 STACK_SIZE = DEFINED(STACK_SIZE) ? STACK_SIZE : DEFINED(__stack_size__) ? __stack_size__ : 0x10000;
-HEAP_SIZE = DEFINED(HEAP_SIZE) ? HEAP_SIZE : 0x3000;
-
 
 /* Section Definitions */
 SECTIONS
@@ -141,15 +138,14 @@ SECTIONS
     .bss (NOLOAD) :
     {
         . = ALIGN(4);
-
+       __bss_start__ = . ;
         _sbss = . ;
-        __bss_start__ = .;
         _szero = .;
         *(.bss .bss.*)
         *(COMMON)
         . = ALIGN(4);
+        __bss_end__ = . ;
         _ebss = . ;
-        __bss_end__ = .;
         _ezero = .;
     } > ram
 
@@ -162,14 +158,7 @@ SECTIONS
         . = ALIGN(8);
         _estack = .;
     } > ram
-
+/*heap support, check stack size for overflow*/
     . = ALIGN(4);
-    end = .;
-        /* heap section */
-      .heap (NOLOAD):
-      {
-          _heap_start = .;
-          . = . + HEAP_SIZE;
-          _heap_end = .;
-      } > ram  _end = . ;
+    end = . ;
 }

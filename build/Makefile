@@ -129,29 +129,29 @@ rawclock.exe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/build
 .PHONY : rawclock.exe/fast
 
-samd51/linker/startup_samd51.o: samd51/linker/startup_samd51.c.o
-.PHONY : samd51/linker/startup_samd51.o
+samd51/startup_samd51.o: samd51/startup_samd51.c.o
+.PHONY : samd51/startup_samd51.o
 
 # target to build an object file
-samd51/linker/startup_samd51.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.o
-.PHONY : samd51/linker/startup_samd51.c.o
+samd51/startup_samd51.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o
+.PHONY : samd51/startup_samd51.c.o
 
-samd51/linker/startup_samd51.i: samd51/linker/startup_samd51.c.i
-.PHONY : samd51/linker/startup_samd51.i
+samd51/startup_samd51.i: samd51/startup_samd51.c.i
+.PHONY : samd51/startup_samd51.i
 
 # target to preprocess a source file
-samd51/linker/startup_samd51.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.i
-.PHONY : samd51/linker/startup_samd51.c.i
+samd51/startup_samd51.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.i
+.PHONY : samd51/startup_samd51.c.i
 
-samd51/linker/startup_samd51.s: samd51/linker/startup_samd51.c.s
-.PHONY : samd51/linker/startup_samd51.s
+samd51/startup_samd51.s: samd51/startup_samd51.c.s
+.PHONY : samd51/startup_samd51.s
 
 # target to generate assembly for a file
-samd51/linker/startup_samd51.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/samd51/linker/startup_samd51.c.s
-.PHONY : samd51/linker/startup_samd51.c.s
+samd51/startup_samd51.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.exe.dir/build.make CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.s
+.PHONY : samd51/startup_samd51.c.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -186,9 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... rawclock.exe"
-	@echo "... samd51/linker/startup_samd51.o"
-	@echo "... samd51/linker/startup_samd51.i"
-	@echo "... samd51/linker/startup_samd51.s"
+	@echo "... samd51/startup_samd51.o"
+	@echo "... samd51/startup_samd51.i"
+	@echo "... samd51/startup_samd51.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
