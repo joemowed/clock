@@ -44,5 +44,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/rawclock.exe.dir/DependInfo.cmake"
+  "CMakeFiles/rawclock.elf.dir/DependInfo.cmake"
   )

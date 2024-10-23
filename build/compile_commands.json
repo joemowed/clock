@@ -1,14 +1,14 @@
 [
 {
   "directory": "/home/jmaloney/Documents/rawClock/build",
-  "command": "/usr/bin/arm-none-eabi-g++  -I/home/jmaloney/Documents/rawClock/samd51 -I/home/jmaloney/Documents/rawClock/src/include -mthumb -mcpu=cortex-m4 -specs=nosys.specs -Wl,--gc-sections -O0 -ggdb -o CMakeFiles/rawclock.exe.dir/src/main.cpp.o -c /home/jmaloney/Documents/rawClock/src/main.cpp",
+  "command": "/usr/bin/arm-none-eabi-g++  -I/home/jmaloney/Documents/rawClock/samd51/CMSIS -I/home/jmaloney/Documents/rawClock/samd51/DFP -I/home/jmaloney/Documents/rawClock/src/include -mthumb -mcpu=cortex-m4 -specs=nosys.specs -Wl,--gc-sections -O0 -ggdb -o CMakeFiles/rawclock.elf.dir/src/main.cpp.o -c /home/jmaloney/Documents/rawClock/src/main.cpp",
   "file": "/home/jmaloney/Documents/rawClock/src/main.cpp",
-  "output": "CMakeFiles/rawclock.exe.dir/src/main.cpp.o"
+  "output": "CMakeFiles/rawclock.elf.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/jmaloney/Documents/rawClock/build",
-  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/jmaloney/Documents/rawClock/samd51 -I/home/jmaloney/Documents/rawClock/src/include -mthumb -mcpu=cortex-m4 -specs=nosys.specs -Wl,--gc-sections -O0 -ggdb -o CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o -c /home/jmaloney/Documents/rawClock/samd51/startup_samd51.c",
-  "file": "/home/jmaloney/Documents/rawClock/samd51/startup_samd51.c",
-  "output": "CMakeFiles/rawclock.exe.dir/samd51/startup_samd51.c.o"
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/jmaloney/Documents/rawClock/samd51/CMSIS -I/home/jmaloney/Documents/rawClock/samd51/DFP -I/home/jmaloney/Documents/rawClock/src/include -mthumb -mcpu=cortex-m4 -specs=nosys.specs -Wl,--gc-sections -O0 -ggdb -o CMakeFiles/rawclock.elf.dir/samd51/DFP/src/startup_samd51j20a.c.o -c /home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.c",
+  "file": "/home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.c",
+  "output": "CMakeFiles/rawclock.elf.dir/samd51/DFP/src/startup_samd51j20a.c.o"
 }
 ]
