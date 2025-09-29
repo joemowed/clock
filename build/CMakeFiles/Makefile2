@@ -54,7 +54,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jmaloney/Documents/rawClock
+CMAKE_SOURCE_DIR = /home/jmaloney/Documents/rawClock/cmake
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/jmaloney/Documents/rawClock/build
@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/jmaloney/Documents/rawClock/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/rawclock.elf.dir/all
+all: CMakeFiles/rawclock.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/rawclock.elf.dir/clean
+clean: CMakeFiles/rawclock.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/rawclock.elf.dir
+# Target rules for target CMakeFiles/rawclock.dir
 
 # All Build rule for target.
-CMakeFiles/rawclock.elf.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.elf.dir/build.make CMakeFiles/rawclock.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.elf.dir/build.make CMakeFiles/rawclock.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jmaloney/Documents/rawClock/build/CMakeFiles --progress-num=1,2,3 "Built target rawclock.elf"
-.PHONY : CMakeFiles/rawclock.elf.dir/all
+CMakeFiles/rawclock.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jmaloney/Documents/rawClock/build/CMakeFiles --progress-num=1,2,3 "Built target rawclock"
+.PHONY : CMakeFiles/rawclock.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/rawclock.elf.dir/rule: cmake_check_build_system
+CMakeFiles/rawclock.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/rawClock/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rawclock.elf.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rawclock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/rawClock/build/CMakeFiles 0
-.PHONY : CMakeFiles/rawclock.elf.dir/rule
+.PHONY : CMakeFiles/rawclock.dir/rule
 
 # Convenience name for target.
-rawclock.elf: CMakeFiles/rawclock.elf.dir/rule
-.PHONY : rawclock.elf
+rawclock: CMakeFiles/rawclock.dir/rule
+.PHONY : rawclock
 
 # clean rule for target.
-CMakeFiles/rawclock.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.elf.dir/build.make CMakeFiles/rawclock.elf.dir/clean
-.PHONY : CMakeFiles/rawclock.elf.dir/clean
+CMakeFiles/rawclock.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/clean
+.PHONY : CMakeFiles/rawclock.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
