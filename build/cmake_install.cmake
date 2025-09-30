@@ -1,4 +1,4 @@
-# Install script for directory: /home/jmaloney/Documents/rawClock/cmake
+# Install script for directory: /home/jmaloney/Documents/clock/cmake
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jmaloney/Documents/rawClock/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jmaloney/Documents/clock/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

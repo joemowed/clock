@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jmaloney/Documents/rawClock/cmake
+CMAKE_SOURCE_DIR = /home/jmaloney/Documents/clock/cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jmaloney/Documents/rawClock/build
+CMAKE_BINARY_DIR = /home/jmaloney/Documents/clock/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/rawClock/build/CMakeFiles /home/jmaloney/Documents/rawClock/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/clock/build/CMakeFiles /home/jmaloney/Documents/clock/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/rawClock/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/clock/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,65 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named rawclock
+# Target rules for targets named clock
 
 # Build rule for target.
-rawclock: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rawclock
-.PHONY : rawclock
+clock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clock
+.PHONY : clock
 
 # fast build rule for target.
-rawclock/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/build
-.PHONY : rawclock/fast
+clock/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/build
+.PHONY : clock/fast
 
-home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.obj: home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.obj
-.PHONY : home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.obj
-
-# target to build an object file
-home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.obj
-.PHONY : home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.obj
-
-home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.i: home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.i
-.PHONY : home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.i
-
-# target to preprocess a source file
-home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.i
-.PHONY : home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.i
-
-home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.s: home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.s
-.PHONY : home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.s
-
-# target to generate assembly for a file
-home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.s
-.PHONY : home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.cpp.s
-
-home/jmaloney/Documents/rawClock/src/main.obj: home/jmaloney/Documents/rawClock/src/main.cpp.obj
-.PHONY : home/jmaloney/Documents/rawClock/src/main.obj
+home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.obj: home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.obj
 
 # target to build an object file
-home/jmaloney/Documents/rawClock/src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/home/jmaloney/Documents/rawClock/src/main.cpp.obj
-.PHONY : home/jmaloney/Documents/rawClock/src/main.cpp.obj
+home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.obj
 
-home/jmaloney/Documents/rawClock/src/main.i: home/jmaloney/Documents/rawClock/src/main.cpp.i
-.PHONY : home/jmaloney/Documents/rawClock/src/main.i
+home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.i: home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.i
+.PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.i
 
 # target to preprocess a source file
-home/jmaloney/Documents/rawClock/src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/home/jmaloney/Documents/rawClock/src/main.cpp.i
-.PHONY : home/jmaloney/Documents/rawClock/src/main.cpp.i
+home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.i
+.PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.i
 
-home/jmaloney/Documents/rawClock/src/main.s: home/jmaloney/Documents/rawClock/src/main.cpp.s
-.PHONY : home/jmaloney/Documents/rawClock/src/main.s
+home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.s: home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s
+.PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.s
 
 # target to generate assembly for a file
-home/jmaloney/Documents/rawClock/src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rawclock.dir/build.make CMakeFiles/rawclock.dir/home/jmaloney/Documents/rawClock/src/main.cpp.s
-.PHONY : home/jmaloney/Documents/rawClock/src/main.cpp.s
+home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s
+.PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s
+
+home/jmaloney/Documents/clock/src/main.obj: home/jmaloney/Documents/clock/src/main.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/main.obj
+
+# target to build an object file
+home/jmaloney/Documents/clock/src/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/main.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/main.cpp.obj
+
+home/jmaloney/Documents/clock/src/main.i: home/jmaloney/Documents/clock/src/main.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/main.i
+
+# target to preprocess a source file
+home/jmaloney/Documents/clock/src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/main.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/main.cpp.i
+
+home/jmaloney/Documents/clock/src/main.s: home/jmaloney/Documents/clock/src/main.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/main.s
+
+# target to generate assembly for a file
+home/jmaloney/Documents/clock/src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/main.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/main.cpp.s
 
 # Help Target
 help:
@@ -185,13 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... rawclock"
-	@echo "... home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.obj"
-	@echo "... home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.i"
-	@echo "... home/jmaloney/Documents/rawClock/samd51/DFP/src/startup_samd51j20a.s"
-	@echo "... home/jmaloney/Documents/rawClock/src/main.obj"
-	@echo "... home/jmaloney/Documents/rawClock/src/main.i"
-	@echo "... home/jmaloney/Documents/rawClock/src/main.s"
+	@echo "... clock"
+	@echo "... home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.obj"
+	@echo "... home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.i"
+	@echo "... home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.s"
+	@echo "... home/jmaloney/Documents/clock/src/main.obj"
+	@echo "... home/jmaloney/Documents/clock/src/main.i"
+	@echo "... home/jmaloney/Documents/clock/src/main.s"
 .PHONY : help
 
 

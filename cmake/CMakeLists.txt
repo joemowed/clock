@@ -20,7 +20,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "DEBUG")
 endif()
 
-project(rawclock VERSION 1.0
+project(clock VERSION 1.0
     DESCRIPTION ""
     LANGUAGES C CXX)
 

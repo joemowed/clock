@@ -29,7 +29,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is GNU, found in:
-        /home/jmaloney/Documents/rawClock/build/CMakeFiles/3.28.3/CompilerIdC/a.out
+        /home/jmaloney/Documents/clock/build/CMakeFiles/3.28.3/CompilerIdC/a.out
       
   -
     kind: "message-v1"
@@ -81,7 +81,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
       
       The CXX compiler identification is GNU, found in:
-        /home/jmaloney/Documents/rawClock/build/CMakeFiles/3.28.3/CompilerIdCXX/CMakeCXXCompilerId.o
+        /home/jmaloney/Documents/clock/build/CMakeFiles/3.28.3/CompilerIdCXX/CMakeCXXCompilerId.o
       
   -
     kind: "try_compile-v1"
@@ -92,8 +92,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69"
-      binary: "/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69"
+      source: "/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw"
+      binary: "/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -102,13 +102,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69'
+        Change Dir: '/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8cc93/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_8cc93.dir/build.make CMakeFiles/cmTC_8cc93.dir/build
-        gmake[1]: Entering directory '/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69'
-        Building C object CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/cc   -v -o CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_37075/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_37075.dir/build.make CMakeFiles/cmTC_37075.dir/build
+        gmake[1]: Entering directory '/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw'
+        Building C object CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -118,8 +118,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8cc93.dir/'
-         /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_8cc93.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccG7Zimd.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_37075.dir/'
+         /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_37075.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccBtwK7d.s
         GNU C17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (x86_64-linux-gnu)
         	compiled by GNU C version 13.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
         
@@ -136,18 +136,18 @@ events:
          /usr/include
         End of search list.
         Compiler executable checksum: 38987c28e967c64056a6454abdef726e
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8cc93.dir/'
-         as -v --64 -o CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj /tmp/ccG7Zimd.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_37075.dir/'
+         as -v --64 -o CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj /tmp/ccBtwK7d.s
         GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
         COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.'
-        Linking C static library libcmTC_8cc93.a
-        /usr/bin/cmake -P CMakeFiles/cmTC_8cc93.dir/cmake_clean_target.cmake
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cc93.dir/link.txt --verbose=1
-        /usr/bin/ar qc libcmTC_8cc93.a CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/ranlib libcmTC_8cc93.a
-        gmake[1]: Leaving directory '/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.'
+        Linking C static library libcmTC_37075.a
+        /usr/bin/cmake -P CMakeFiles/cmTC_37075.dir/cmake_clean_target.cmake
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37075.dir/link.txt --verbose=1
+        /usr/bin/ar qc libcmTC_37075.a CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/ranlib libcmTC_37075.a
+        gmake[1]: Leaving directory '/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw'
         
       exitCode: 0
   -
@@ -181,13 +181,13 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(arm-none-eabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69']
+        ignore line: [Change Dir: '/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8cc93/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_8cc93.dir/build.make CMakeFiles/cmTC_8cc93.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69']
-        ignore line: [Building C object CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_37075/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_37075.dir/build.make CMakeFiles/cmTC_37075.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw']
+        ignore line: [Building C object CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -197,8 +197,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8cc93.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_8cc93.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccG7Zimd.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_37075.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_37075.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccBtwK7d.s]
         ignore line: [GNU C17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 13.3.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
         ignore line: []
@@ -215,18 +215,18 @@ events:
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 38987c28e967c64056a6454abdef726e]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8cc93.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj /tmp/ccG7Zimd.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_37075.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj /tmp/ccBtwK7d.s]
         ignore line: [GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C static library libcmTC_8cc93.a]
-        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_8cc93.dir/cmake_clean_target.cmake]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cc93.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/ar qc libcmTC_8cc93.a CMakeFiles/cmTC_8cc93.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/ranlib libcmTC_8cc93.a]
-        ignore line: [gmake[1]: Leaving directory '/home/jmaloney/Documents/rawClock/build/CMakeFiles/CMakeScratch/TryCompile-GIPS69']
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C static library libcmTC_37075.a]
+        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_37075.dir/cmake_clean_target.cmake]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37075.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/ar qc libcmTC_37075.a CMakeFiles/cmTC_37075.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/ranlib libcmTC_37075.a]
+        ignore line: [gmake[1]: Leaving directory '/home/jmaloney/Documents/clock/build/CMakeFiles/CMakeScratch/TryCompile-fLrxFw']
         ignore line: []
         ignore line: []
         implicit libs: []
