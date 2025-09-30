@@ -1,72 +1,110 @@
+#include <array>
 #include <cstdint>
 #include <samd51j20a.h>
 
-#define TIMER_TICKS_PER_SEC 1000 // 1ms tick
-#define PRESCALER_DIV 1024
-#define TARGET_TICKS 1000 // 1000 ms = 1 second
+#include <setup_tc3.hpp>
+auto &port_a = PORT_REGS->GROUP[0];
+auto &port_b = PORT_REGS->GROUP[1];
 
-volatile uint32_t timer_ticks = 0;
+const auto &clock_pin = PORT_PB10;
+const auto &OE_pin = PORT_PB11;
+const auto &latch_pin = PORT_PB12;
 
-// === GCLK Setup for TC3 ===
-void configure_gclk_for_tc3(void) {
-    // Enable APB clock for TC3
-    MCLK_REGS->MCLK_APBBMASK |= MCLK_APBBMASK_TC3(1);
+std::array<uint32_t, 10> port_a_pins = {PORT_PA00, PORT_PA01, PORT_PA02, PORT_PA03, PORT_PA04, PORT_PA05, PORT_PA06, PORT_PA07, PORT_PA08, PORT_PA09};
+typedef struct RegBits {
+    uint32_t set;
+    uint32_t clear;
+} RegBits;
+RegBits generate_reg_bits(uint32_t value, uint32_t offset, uint32_t length) {
 
-    // Configure GCLK0 (already running at 48 MHz typically)
-    // Connect GCLK0 to TC3
-    GCLK_REGS->GCLK_PCHCTRL[TC3_GCLK_ID] = GCLK_PCHCTRL_GEN_GCLK0 | // Use GCLK0 (48 MHz)
-                                           GCLK_PCHCTRL_CHEN(1);    // Enable peripheral channel
+    uint32_t generated_msk = 0;
+    for (uint32_t i = 0; i < length; i++) {
+        generated_msk |= 1 << i;
+    }
 
-    // Wait for sync
-    while (!(GCLK_REGS->GCLK_PCHCTRL[TC3_GCLK_ID] & GCLK_PCHCTRL_CHEN(1)))
+    const uint32_t address_msk = (generated_msk << offset);
+
+    const uint32_t set_bits = value << offset;
+    const uint32_t clear_bits = (~set_bits) & address_msk;
+    return {set_bits, clear_bits};
+}
+void write_bits(port_group_registers_t &port, const RegBits bits) {
+    port.PORT_OUTSET = bits.set;
+    port.PORT_OUTCLR = bits.clear;
+}
+void write_address(uint8_t addr) {
+    // clamp addr to 4 bit max
+    if (addr > 0xF) {
+        addr = 0xF;
+    }
+    auto bits = generate_reg_bits(addr, 6, 4);
+    write_bits(port_a, bits);
+}
+uint32_t validate_color(uint8_t color, const uint8_t offset) {
+    if (color > 0b111) {
+        // max 3 bit color
+        color = 0b111;
+    }
+    return color;
+}
+void write_color0(uint8_t color) {
+    color = validate_color(color, 0);
+    auto bits = generate_reg_bits(color, 0, 3);
+    write_bits(port_a, bits);
+}
+void write_color1(uint8_t color);
+void delay_loop() {
+
+    const uint32_t clock_loop_max = 0x02;
+    for (volatile uint32_t i = 0; i < clock_loop_max; i += 1)
         ;
 }
-
-// === TC3 Timer Setup ===
-void configure_tc3_timer(void) {
-    // Disable TC3 before configuration
-    TC3_REGS->COUNT16.TC_CTRLA &= ~TC_CTRLA_ENABLE_Msk;
-    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
-        ;
-
-    // Reset TC3
-    TC3_REGS->COUNT16.TC_CTRLA |= TC_CTRLA_SWRST_Msk;
-    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_SWRST_Msk)
-        ;
-
-    // Configure as 16-bit timer, match frequency, prescaler div 1024, use GCLK
-    TC3_REGS->COUNT16.TC_CTRLA = TC_CTRLA_MODE_COUNT16 | TC_CTRLA_PRESCALER_DIV256;
-    TC3_REGS->COUNT16.TC_CC[0] = 0x1;
-
-    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
-        ;
-
-    // Enable overflow interrupt
-    TC3_REGS->COUNT16.TC_INTENSET = TC_INTENSET_MC0_Msk;
-
-    // Enable NVIC for TC3
-    NVIC_EnableIRQ(TC3_IRQn);
-
-    // Enable TC3
-    TC3_REGS->COUNT16.TC_CTRLA |= TC_CTRLA_ENABLE_Msk;
-    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
-        ;
+void pulse_port_b(const uint32_t pin) {
+    delay_loop();
+    port_b.PORT_OUTSET = pin;
+    delay_loop();
+    port_b.PORT_OUTCLR = pin;
 }
-
 // === Timer Interrupt Handler ===
 void TC3_Handler(void) {
+    port_a.PORT_OUTCLR = port_a_pins[3];
+    port_a.PORT_OUTSET = port_a_pins[3];
+    static uint8_t curr_addr = 0;
+    static uint8_t color0 = 0;
     if (TC3_REGS->COUNT16.TC_INTFLAG & TC_INTFLAG_MC0_Msk) {
         TC3_REGS->COUNT16.TC_INTFLAG = TC_INTFLAG_MC0_Msk; // Clear interrupt
-
-        PORT_REGS->GROUP[0].PORT_OUTTGL = static_cast<uint32_t>(1 << PIN_PA00);
     }
+    write_address(curr_addr++);
+    curr_addr = (curr_addr > 0xF) ? 0x0 : curr_addr;
+    write_color0(color0++);
+    pulse_port_b(0x0);
+    color0 = (color0 > 0b111) ? 0x0 : color0;
+    pulse_port_b(clock_pin);
+    pulse_port_b(latch_pin);
+    port_a.PORT_OUTCLR = port_a_pins[3];
 }
+void init_port_b() {
+    port_b.PORT_DIRSET = clock_pin;
+    port_b.PORT_DIRSET = OE_pin;
+    port_b.PORT_DIRSET = latch_pin;
+    port_b.PORT_OUTCLR = OE_pin;
+}
+void init_port_a() {
+    uint32_t reg = 0;
+    for (auto pin : port_a_pins) {
+        reg |= pin;
+    }
 
+    port_a.PORT_DIR = reg;
+}
 int main(void) {
-    configure_gclk_for_tc3();
-    configure_tc3_timer();
-    PORT_REGS->GROUP[0].PORT_DIR = static_cast<uint32_t>(1 << PIN_PA00);
-    PORT_REGS->GROUP[0].PORT_OUTTGL = static_cast<uint32_t>(1 << PIN_PA00);
+    configureGCLKForTC3();
+    initTC3();
+    init_port_a();
+    init_port_b();
+    for (auto each : port_a_pins) {
+        port_a.PORT_OUTSET = each;
+    }
     while (true) {
     }
     return 0;

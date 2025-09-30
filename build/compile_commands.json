@@ -7,6 +7,12 @@
 },
 {
   "directory": "/home/jmaloney/Documents/clock/build",
+  "command": "/usr/bin/arm-none-eabi-g++  -I/home/jmaloney/Documents/clock/cmake/../samd51/CMSIS -I/home/jmaloney/Documents/clock/cmake/../samd51/DFP -I/home/jmaloney/Documents/clock/cmake/../src/include -mcpu=cortex-m4 -Wall -Wextra  -Wpedantic  -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics -g -std=gnu++20 -o CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc3.cpp.obj -c /home/jmaloney/Documents/clock/src/setup_tc3.cpp",
+  "file": "/home/jmaloney/Documents/clock/src/setup_tc3.cpp",
+  "output": "CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc3.cpp.obj"
+},
+{
+  "directory": "/home/jmaloney/Documents/clock/build",
   "command": "/usr/bin/arm-none-eabi-g++  -I/home/jmaloney/Documents/clock/cmake/../samd51/CMSIS -I/home/jmaloney/Documents/clock/cmake/../samd51/DFP -I/home/jmaloney/Documents/clock/cmake/../src/include -mcpu=cortex-m4 -Wall -Wextra  -Wpedantic  -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics -g -std=gnu++20 -o CMakeFiles/clock.dir/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.obj -c /home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp",
   "file": "/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp",
   "output": "CMakeFiles/clock.dir/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.obj"

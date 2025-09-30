@@ -177,6 +177,30 @@ home/jmaloney/Documents/clock/src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/main.cpp.s
 .PHONY : home/jmaloney/Documents/clock/src/main.cpp.s
 
+home/jmaloney/Documents/clock/src/setup_tc3.obj: home/jmaloney/Documents/clock/src/setup_tc3.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc3.obj
+
+# target to build an object file
+home/jmaloney/Documents/clock/src/setup_tc3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc3.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc3.cpp.obj
+
+home/jmaloney/Documents/clock/src/setup_tc3.i: home/jmaloney/Documents/clock/src/setup_tc3.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc3.i
+
+# target to preprocess a source file
+home/jmaloney/Documents/clock/src/setup_tc3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc3.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc3.cpp.i
+
+home/jmaloney/Documents/clock/src/setup_tc3.s: home/jmaloney/Documents/clock/src/setup_tc3.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc3.s
+
+# target to generate assembly for a file
+home/jmaloney/Documents/clock/src/setup_tc3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc3.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc3.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... home/jmaloney/Documents/clock/src/main.obj"
 	@echo "... home/jmaloney/Documents/clock/src/main.i"
 	@echo "... home/jmaloney/Documents/clock/src/main.s"
+	@echo "... home/jmaloney/Documents/clock/src/setup_tc3.obj"
+	@echo "... home/jmaloney/Documents/clock/src/setup_tc3.i"
+	@echo "... home/jmaloney/Documents/clock/src/setup_tc3.s"
 .PHONY : help
 
 
