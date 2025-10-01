@@ -201,6 +201,30 @@ home/jmaloney/Documents/clock/src/setup_tc3.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc3.cpp.s
 .PHONY : home/jmaloney/Documents/clock/src/setup_tc3.cpp.s
 
+home/jmaloney/Documents/clock/src/setup_tc5.obj: home/jmaloney/Documents/clock/src/setup_tc5.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc5.obj
+
+# target to build an object file
+home/jmaloney/Documents/clock/src/setup_tc5.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc5.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc5.cpp.obj
+
+home/jmaloney/Documents/clock/src/setup_tc5.i: home/jmaloney/Documents/clock/src/setup_tc5.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc5.i
+
+# target to preprocess a source file
+home/jmaloney/Documents/clock/src/setup_tc5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc5.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc5.cpp.i
+
+home/jmaloney/Documents/clock/src/setup_tc5.s: home/jmaloney/Documents/clock/src/setup_tc5.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc5.s
+
+# target to generate assembly for a file
+home/jmaloney/Documents/clock/src/setup_tc5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/setup_tc5.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/setup_tc5.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,6 +243,9 @@ help:
 	@echo "... home/jmaloney/Documents/clock/src/setup_tc3.obj"
 	@echo "... home/jmaloney/Documents/clock/src/setup_tc3.i"
 	@echo "... home/jmaloney/Documents/clock/src/setup_tc3.s"
+	@echo "... home/jmaloney/Documents/clock/src/setup_tc5.obj"
+	@echo "... home/jmaloney/Documents/clock/src/setup_tc5.i"
+	@echo "... home/jmaloney/Documents/clock/src/setup_tc5.s"
 .PHONY : help
 
 

@@ -81,12 +81,12 @@ clean: CMakeFiles/clock.dir/clean
 CMakeFiles/clock.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jmaloney/Documents/clock/build/CMakeFiles --progress-num=1,2,3,4 "Built target clock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jmaloney/Documents/clock/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target clock"
 .PHONY : CMakeFiles/clock.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/clock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/clock/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/clock/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/clock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmaloney/Documents/clock/build/CMakeFiles 0
 .PHONY : CMakeFiles/clock.dir/rule

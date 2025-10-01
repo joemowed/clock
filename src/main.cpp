@@ -3,6 +3,7 @@
 #include <samd51j20a.h>
 
 #include <setup_tc3.hpp>
+#include <setup_tc5.hpp>
 auto &port_a = PORT_REGS->GROUP[0];
 auto &port_b = PORT_REGS->GROUP[1];
 
@@ -88,6 +89,8 @@ void init_port_b() {
     port_b.PORT_DIRSET = OE_pin;
     port_b.PORT_DIRSET = latch_pin;
     port_b.PORT_OUTCLR = OE_pin;
+    port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(1);
+    port_b.PORT_PMUX[5] = PORT_PMUX_PMUXO_E;
 }
 void init_port_a() {
     uint32_t reg = 0;
@@ -100,6 +103,8 @@ void init_port_a() {
 int main(void) {
     configureGCLKForTC3();
     initTC3();
+    configureGCLKForTC5();
+    initTC5();
     init_port_a();
     init_port_b();
     for (auto each : port_a_pins) {
