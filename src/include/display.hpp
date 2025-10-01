@@ -6,6 +6,7 @@ class Display {
   public:
     static constexpr const uint8_t line_size = 64;
     static constexpr const uint8_t line_count = 16;
+    static constexpr const uint8_t color_bits = 3;
 
     using Line = std::array<uint8_t, line_size>;
     using BitMap = std::array<Line, line_count>;
@@ -20,11 +21,12 @@ class Display {
 
   private:
     static BitMap disp_buffer;
-
+    static void select_line(uint8_t line_num);
     static void init_port_a();
     static void init_port_b();
-    static uint8_t validate_color();
-    static void drawLine(Line line);
+    static uint8_t validate_color(uint8_t color);
+    static void drawLine(Line line, uint8_t line_num);
+    static void drawPixel(uint8_t color);
     static const uint32_t clock_pin = PORT_PB10;
     static const uint32_t OE_pin = PORT_PB11;
     static const uint32_t latch_pin = PORT_PB12;
