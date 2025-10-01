@@ -2,15 +2,11 @@
 #include <cstdint>
 #include <samd51j20a.h>
 
-#include <setup_tc3.hpp>
-#include <setup_tc5.hpp>
-auto &port_a = PORT_REGS->GROUP[0];
-auto &port_b = PORT_REGS->GROUP[1];
-
-const auto &clock_pin = PORT_PB10;
-const auto &OE_pin = PORT_PB11;
-const auto &latch_pin = PORT_PB12;
-
+#include <display.hpp>
+#include <utility.hpp>
+const uint32_t clock_pin = PORT_PB10;
+const uint32_t OE_pin = PORT_PB11;
+const uint32_t latch_pin = PORT_PB12;
 std::array<uint32_t, 10> port_a_pins = {PORT_PA00, PORT_PA01, PORT_PA02, PORT_PA03, PORT_PA04, PORT_PA05, PORT_PA06, PORT_PA07, PORT_PA08, PORT_PA09};
 typedef struct RegBits {
     uint32_t set;
@@ -67,46 +63,8 @@ void pulse_port_b(const uint32_t pin) {
     port_b.PORT_OUTCLR = pin;
 }
 // === Timer Interrupt Handler ===
-void TC3_Handler(void) {
-    port_a.PORT_OUTCLR = port_a_pins[3];
-    port_a.PORT_OUTSET = port_a_pins[3];
-    static uint8_t curr_addr = 0;
-    static uint8_t color0 = 0;
-    if (TC3_REGS->COUNT16.TC_INTFLAG & TC_INTFLAG_MC0_Msk) {
-        TC3_REGS->COUNT16.TC_INTFLAG = TC_INTFLAG_MC0_Msk; // Clear interrupt
-    }
-    write_address(curr_addr++);
-    curr_addr = (curr_addr > 0xF) ? 0x0 : curr_addr;
-    write_color0(color0++);
-    pulse_port_b(0x0);
-    color0 = (color0 > 0b111) ? 0x0 : color0;
-    pulse_port_b(clock_pin);
-    pulse_port_b(latch_pin);
-    port_a.PORT_OUTCLR = port_a_pins[3];
-}
-void init_port_b() {
-    port_b.PORT_DIRSET = clock_pin;
-    port_b.PORT_DIRSET = OE_pin;
-    port_b.PORT_DIRSET = latch_pin;
-    port_b.PORT_OUTCLR = OE_pin;
-    port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(1);
-    port_b.PORT_PMUX[5] = PORT_PMUX_PMUXO_E;
-}
-void init_port_a() {
-    uint32_t reg = 0;
-    for (auto pin : port_a_pins) {
-        reg |= pin;
-    }
-
-    port_a.PORT_DIR = reg;
-}
 int main(void) {
-    configureGCLKForTC3();
-    initTC3();
-    configureGCLKForTC5();
-    initTC5();
-    init_port_a();
-    init_port_b();
+    Display::init();
     for (auto each : port_a_pins) {
         port_a.PORT_OUTSET = each;
     }

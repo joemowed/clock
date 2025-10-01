@@ -153,6 +153,30 @@ home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s
 .PHONY : home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp.s
 
+home/jmaloney/Documents/clock/src/display.obj: home/jmaloney/Documents/clock/src/display.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/display.obj
+
+# target to build an object file
+home/jmaloney/Documents/clock/src/display.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/display.cpp.obj
+.PHONY : home/jmaloney/Documents/clock/src/display.cpp.obj
+
+home/jmaloney/Documents/clock/src/display.i: home/jmaloney/Documents/clock/src/display.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/display.i
+
+# target to preprocess a source file
+home/jmaloney/Documents/clock/src/display.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/display.cpp.i
+.PHONY : home/jmaloney/Documents/clock/src/display.cpp.i
+
+home/jmaloney/Documents/clock/src/display.s: home/jmaloney/Documents/clock/src/display.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/display.s
+
+# target to generate assembly for a file
+home/jmaloney/Documents/clock/src/display.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clock.dir/build.make CMakeFiles/clock.dir/home/jmaloney/Documents/clock/src/display.cpp.s
+.PHONY : home/jmaloney/Documents/clock/src/display.cpp.s
+
 home/jmaloney/Documents/clock/src/main.obj: home/jmaloney/Documents/clock/src/main.cpp.obj
 .PHONY : home/jmaloney/Documents/clock/src/main.obj
 
@@ -237,6 +261,9 @@ help:
 	@echo "... home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.obj"
 	@echo "... home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.i"
 	@echo "... home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.s"
+	@echo "... home/jmaloney/Documents/clock/src/display.obj"
+	@echo "... home/jmaloney/Documents/clock/src/display.i"
+	@echo "... home/jmaloney/Documents/clock/src/display.s"
 	@echo "... home/jmaloney/Documents/clock/src/main.obj"
 	@echo "... home/jmaloney/Documents/clock/src/main.i"
 	@echo "... home/jmaloney/Documents/clock/src/main.s"

@@ -1,6 +1,7 @@
 
 
 #include <cstdint>
+#include <display.hpp>
 #include <samd51j20a.h>
 // === GCLK Setup for TC3 ===
 void configureGCLKForTC3(void) {
@@ -46,4 +47,13 @@ void initTC3(void) {
     TC3_REGS->COUNT16.TC_CTRLA |= TC_CTRLA_ENABLE_Msk;
     while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
         ;
+}
+
+void TC3_Handler(void) {
+    static uint8_t curr_addr = 0;
+    static uint8_t color0 = 0;
+    if (TC3_REGS->COUNT16.TC_INTFLAG & TC_INTFLAG_MC0_Msk) {
+        TC3_REGS->COUNT16.TC_INTFLAG = TC_INTFLAG_MC0_Msk; // Clear interrupt
+    }
+    Display::draw();
 }

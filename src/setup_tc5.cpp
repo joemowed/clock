@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <samd51j20a.h>
 #include <setup_tc5.hpp>
-// === GCLK Setup for TC3 ===
+// === GCLK Setup for TC5 ===
 void configureGCLKForTC5(void) {
     // Enable APB clock for TC5
     MCLK_REGS->MCLK_APBCMASK |= MCLK_APBCMASK_TC5(1);
@@ -17,7 +17,7 @@ void configureGCLKForTC5(void) {
     while (!(GCLK_REGS->GCLK_PCHCTRL[TC5_GCLK_ID] & GCLK_PCHCTRL_CHEN(1)))
         ;
 }
-// === TC3 Timer Setup ===
+// === TC5 Timer Setup ===
 void initTC5(void) {
     // Disable TC3 before configuration
     TC5_REGS->COUNT16.TC_CTRLA &= ~TC_CTRLA_ENABLE_Msk;
