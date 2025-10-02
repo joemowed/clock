@@ -31,29 +31,30 @@ void initTC3(void) {
         ;
 
     // Configure as 16-bit timer, match frequency, prescaler div 1024, use GCLK
-    TC3_REGS->COUNT8.TC_CTRLA = TC_CTRLA_MODE_COUNT8 | TC_CTRLA_PRESCALER_DIV16;
+    TC3_REGS->COUNT8.TC_CTRLA = TC_CTRLA_MODE_COUNT8 | TC_CTRLA_PRESCALER_DIV64;
     TC3_REGS->COUNT8.TC_CC[0] = 0xFF;
 
-    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
+    while (TC3_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
         ;
 
     // Enable overflow interrupt
-    TC3_REGS->COUNT16.TC_INTENSET = TC_INTENSET_MC0_Msk;
+    TC3_REGS->COUNT8.TC_INTENSET = TC_INTENSET_MC0_Msk;
 
     // Enable NVIC for TC3
     NVIC_EnableIRQ(TC3_IRQn);
 
     // Enable TC3
-    TC3_REGS->COUNT16.TC_CTRLA |= TC_CTRLA_ENABLE_Msk;
-    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
+    TC3_REGS->COUNT8.TC_CTRLA |= TC_CTRLA_ENABLE_Msk;
+    while (TC3_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
         ;
 }
 
 void TC3_Handler(void) {
     static uint8_t curr_addr = 0;
     static uint8_t color0 = 0;
-    if (TC3_REGS->COUNT16.TC_INTFLAG & TC_INTFLAG_MC0_Msk) {
-        TC3_REGS->COUNT16.TC_INTFLAG = TC_INTFLAG_MC0_Msk; // Clear interrupt
+    // Display::draw();
+
+    if (TC3_REGS->COUNT8.TC_INTFLAG & TC_INTFLAG_MC0_Msk) {
+        TC3_REGS->COUNT8.TC_INTFLAG = TC_INTFLAG_MC0_Msk; // Clear interrupt
     }
-    Display::draw();
 }

@@ -4,8 +4,8 @@
 *                         www.segger.com                             *
 **********************************************************************
 
-File          : /home/jmaloney/Documents/rawClock/rawclock.jdebug
-Created       : 29 Sep 2025 16:21
+File          : /home/jmaloney/Documents/clock/clock.jdebug
+Created       : 2 Oct 2025 14:03
 Ozone Version : V3.38d
 */
 
@@ -22,18 +22,18 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("/home/jmaloney/Documents/rawClock", "$(ProjectDir)");
-  Project.AddPathSubstitute ("/home/jmaloney/documents/rawclock", "$(ProjectDir)");
+  Project.AddPathSubstitute ("/home/jmaloney/Documents/clock", "$(ProjectDir)");
+  Project.AddPathSubstitute ("/home/jmaloney/documents/clock", "$(ProjectDir)");
   Project.SetDevice ("ATSAMD51J20A");
-  Project.SetHostIF ("USB", "");
+  Project.SetHostIF ("USB", "802000004");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M4F.svd");
-  Project.AddSvdFile ("/home/jmaloney/Documents/mLearn/test/STM32F767.svd");
+  Project.AddSvdFile ("/home/jmaloney/Documents/clock/docs/ATSAMD51J20A.svd");
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/build/rawclock.elf");
+  File.Open ("$(ProjectDir)/build/clock.elf");
 }
 
 /*********************************************************************
@@ -338,25 +338,8 @@ void AfterTargetDownload (void) {
 **********************************************************************
 */
 void _SetupTarget(void) {
-  unsigned int SP;
-  unsigned int PC;
-  unsigned int VectorTableAddr;
-
-  VectorTableAddr = Elf.GetBaseAddr();
   //
-  // Set up initial stack pointer
+  // this function is intentionally empty because both inital PC and
+  // initial SP were chosen not to be set
   //
-  SP = Target.ReadU32(VectorTableAddr);
-  if (SP != 0xFFFFFFFF) {
-    Target.SetReg("SP", SP);
-  }
-  //
-  // Set up entry point PC
-  //
-  PC = Elf.GetEntryPointPC();
-  if (PC != 0xFFFFFFFF) {
-    Target.SetReg("PC", PC);
-  } else {
-    Util.Error("Project script error: failed to set up entry point PC", 1);
-  }
 }

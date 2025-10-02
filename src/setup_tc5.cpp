@@ -1,6 +1,7 @@
 
 
 #include <cstdint>
+#include <display.hpp>
 #include <samd51j20a.h>
 #include <setup_tc5.hpp>
 // === GCLK Setup for TC5 ===
@@ -33,7 +34,7 @@ void initTC5(void) {
     TC5_REGS->COUNT8.TC_CTRLA = TC_CTRLA_MODE_COUNT8 | TC_CTRLA_PRESCALER_DIV1;
     // TC5_REGS->COUNT8.TC_CC[0] = 0xA0;
 
-    TC5_REGS->COUNT8.TC_CC[1] = 0xFF - (0xFF * brightness);
+    TC5_REGS->COUNT8.TC_CC[1] = 0xFF - (0xFF * Display::brightness);
     TC5_REGS->COUNT8.TC_WAVE = TC_WAVE_WAVEGEN_NPWM;
 
     while (TC5_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
@@ -48,5 +49,15 @@ void initTC5(void) {
     // Enable TC5
     TC5_REGS->COUNT8.TC_CTRLA |= TC_CTRLA_ENABLE_Msk;
     while (TC5_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
+        ;
+}
+void startPWM() {
+    TC5_REGS->COUNT8.TC_CC[1] = 0xFF - (0xFF * Display::brightness);
+    while (TC5_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
+        ;
+}
+void stopPWM() {
+    TC5_REGS->COUNT8.TC_CC[1] = 0xFF - (0xFF * 0);
+    while (TC5_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
         ;
 }
