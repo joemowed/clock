@@ -37,4 +37,5 @@ class Display {
     static void latch();
     static void pulse_port_b(const uint32_t pin);
     static void write_address(uint8_t addr);
+    static uint8_t curr_draw_line_num;
 };

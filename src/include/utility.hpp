@@ -11,13 +11,6 @@ consteval inline uint32_t generateMask(const uint32_t length) {
     return generated_msk;
 }
 
-inline void pulse_delay_loop() {
-
-    constexpr const uint32_t clock_loop_max = 0x00;
-    for (volatile uint32_t i = 0; i < clock_loop_max; i += 1)
-        ;
-}
-
 typedef struct RegBits {
     uint32_t set;
     uint32_t clear;
@@ -46,4 +39,6 @@ inline void write_bits(port_group_registers_t &port, const RegBits bits) {
     port.PORT_OUTSET = bits.set;
     port.PORT_OUTCLR = bits.clear;
 }
+inline void timingPulseOn() { util::port_a.PORT_OUTSET = PORT_PA15; }
+inline void timingPulseOff() { util::port_a.PORT_OUTCLR = PORT_PA15; }
 } // namespace util

@@ -4,7 +4,8 @@
 #include <utility.hpp>
 
 Display::BitMap Display::disp_buffer;
-float Display::brightness = 0.05F;
+float Display::brightness = 0.5F;
+uint8_t Display::curr_draw_line_num = 0;
 
 void Display::init_port_b() {
     util::port_b.PORT_DIRSET = clock_pin;
@@ -20,7 +21,7 @@ void Display::init_port_a() {
     for (auto pin : port_a_pins) {
         reg |= pin;
     }
-
+    reg |= PORT_PA15;
     util::port_a.PORT_DIR = reg;
 }
 
@@ -45,32 +46,38 @@ void Display::drawLines(uint8_t line_num) {
     write_address(line_num);
     const Line &upper_line = disp_buffer.at(line_num);
     const Line &lower_line = disp_buffer.at(line_num + 16);
+
     for (int i = 0; i < line_size; i++) {
         uint8_t upper_color = upper_line.at(i);
         uint8_t lower_color = lower_line.at(i);
-        drawPixels(upper_color, lower_color);
+        lower_color = (lower_color > 0b111) ? 0b111 : lower_color;
+        upper_color = (upper_color > 0b111) ? 0b111 : upper_color;
+        uint32_t port_a_state = util::port_a.PORT_OUT;
+        port_a_state &= ~0b111111; // clear color bits
+        port_a_state |= ((upper_color << 3) | lower_color);
+        util::port_a.PORT_OUT = port_a_state;
+        clock();
     }
     latch();
-    util::pulse_delay_loop();
 }
-void Display::drawPixels(uint8_t upper_color, uint8_t lower_color) {
-    lower_color = validate_color(lower_color);
-    lower_color = validate_color(lower_color);
-    auto upper_bits = util::generate_reg_bits3(upper_color, 0);
-    auto lower_bits = util::generate_reg_bits3(lower_color, 3);
-    util::RegBits combined_bits;
-    combined_bits.clear = upper_bits.clear | lower_bits.clear;
-    combined_bits.set = upper_bits.set | lower_bits.set;
-
-    util::write_bits(util::port_a, combined_bits);
+inline void Display::drawPixels(uint8_t upper_color, uint8_t lower_color) {
+    lower_color = (lower_color > 0b111) ? 0b111 : lower_color;
+    upper_color = (upper_color > 0b111) ? 0b111 : upper_color;
+    // auto upper_bits = util::generate_reg_bits3(upper_color, 0);
+    // auto lower_bits = util::generate_reg_bits3(lower_color, 3);
+    // util::RegBits combined_bits;
+    // combined_bits.clear = upper_bits.clear | lower_bits.clear;
+    // combined_bits.set = upper_bits.set | lower_bits.set;
+    // util::write_bits(util::port_a, combined_bits);
+    uint32_t port_a_state = util::port_a.PORT_OUT;
+    port_a_state &= ~0b111111; // clear color bits
+    port_a_state |= ((upper_color << 3) | lower_color);
+    util::port_a.PORT_OUT = port_a_state;
     clock();
 }
 void Display::draw() {
-    uint8_t curr_line_num = 0;
-    constexpr const uint8_t upper_line_count = line_count / 2;
-    while (curr_line_num < upper_line_count) {
-        Display::drawLines(curr_line_num++);
-    }
+    curr_draw_line_num = (curr_draw_line_num >= line_count / 2) ? 0 : curr_draw_line_num;
+    Display::drawLines(curr_draw_line_num++);
 }
 void Display::updatePixel(uint8_t color, uint8_t pixel_pos, uint8_t line_num) {
     color = validate_color(color);
@@ -87,15 +94,16 @@ void Display::fill(uint8_t color) {
     }
 }
 void Display::clock() {
-    stopPWM();
+    // stopPWM();
+    util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(0);
     pulse_port_b(clock_pin);
-    startPWM();
+    util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(1);
+    // startPWM();
 }
 void Display::latch() { pulse_port_b(latch_pin); }
+
 void Display::pulse_port_b(const uint32_t pin) {
-    util::pulse_delay_loop();
     util::port_b.PORT_OUTSET = pin;
-    util::pulse_delay_loop();
     util::port_b.PORT_OUTCLR = pin;
 }
 
