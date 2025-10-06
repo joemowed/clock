@@ -4,7 +4,7 @@
 #include <utility.hpp>
 
 Display::BitMap Display::disp_buffer;
-float Display::brightness = 0.5F;
+uint8_t Display::brightness = 50;
 uint8_t Display::curr_draw_line_num = 0;
 
 void Display::init_port_b() {
@@ -43,9 +43,9 @@ void Display::init() {
 }
 void Display::drawLines(uint8_t line_num) {
 
-    write_address(line_num);
-    const Line &upper_line = disp_buffer.at(line_num);
-    const Line &lower_line = disp_buffer.at(line_num + 16);
+    writeAddress(line_num);
+    const Line &upper_line = disp_buffer.at(line_num + 16);
+    const Line &lower_line = disp_buffer.at(line_num);
 
     for (int i = 0; i < line_size; i++) {
         uint8_t upper_color = upper_line.at(i);
@@ -96,22 +96,28 @@ void Display::fill(uint8_t color) {
 void Display::clock() {
     // stopPWM();
     util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(0);
-    pulse_port_b(clock_pin);
+    util::port_b.PORT_OUTSET = OE_pin;
+    pulsePortB(clock_pin);
     util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(1);
     // startPWM();
 }
-void Display::latch() { pulse_port_b(latch_pin); }
-
-void Display::pulse_port_b(const uint32_t pin) {
+void Display::latch() { pulsePortB(latch_pin); }
+void delayLoop() {
+    for (volatile int i = 0; i < 1; i += 1) {
+    }
+}
+void Display::pulsePortB(const uint32_t pin) {
+    delayLoop();
     util::port_b.PORT_OUTSET = pin;
+    delayLoop();
     util::port_b.PORT_OUTCLR = pin;
 }
 
-void Display::write_address(uint8_t addr) {
+void Display::writeAddress(uint8_t addr) {
     // clamp addr to 4 bit max
     if (addr > 0xF) {
         addr = 0xF;
     }
-    auto bits = util::generate_reg_bits4(addr, 6);
-    util::write_bits(util::port_a, bits);
+    auto bits = util::generateRegBits4(addr, 6);
+    util::writeBits(util::port_a, bits);
 }

@@ -8,8 +8,7 @@ class Display {
     static constexpr const uint8_t line_count = 32;
     static constexpr const uint8_t color_bits = 3;
 
-    // brightness is a value between 0 and 1 that is duty cycle of display
-    static float brightness;
+    static uint8_t brightness;
     using Line = std::array<volatile uint8_t, line_size>;
     using BitMap = std::array<Line, line_count>;
     Display() = delete;
@@ -35,7 +34,7 @@ class Display {
     constexpr static const std::array<uint32_t, 10> port_a_pins = {PORT_PA00, PORT_PA01, PORT_PA02, PORT_PA03, PORT_PA04, PORT_PA05, PORT_PA06, PORT_PA07, PORT_PA08, PORT_PA09};
     static void clock();
     static void latch();
-    static void pulse_port_b(const uint32_t pin);
-    static void write_address(uint8_t addr);
+    static void pulsePortB(const uint32_t pin);
+    static void writeAddress(uint8_t addr);
     static uint8_t curr_draw_line_num;
 };

@@ -34,7 +34,7 @@ void initTC5(void) {
     TC5_REGS->COUNT8.TC_CTRLA = TC_CTRLA_MODE_COUNT8 | TC_CTRLA_PRESCALER_DIV1;
     // TC5_REGS->COUNT8.TC_CC[0] = 0xA0;
 
-    TC5_REGS->COUNT8.TC_CC[1] = 0xFF - (0xFF * Display::brightness);
+    TC5_REGS->COUNT8.TC_CC[1] = 0xFF - (Display::brightness);
     TC5_REGS->COUNT8.TC_WAVE = TC_WAVE_WAVEGEN_NPWM;
 
     while (TC5_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)

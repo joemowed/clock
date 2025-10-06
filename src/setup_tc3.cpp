@@ -30,9 +30,8 @@ void initTC3(void) {
     while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_SWRST_Msk)
         ;
 
-    // Configure as 16-bit timer, match frequency, prescaler div 1024, use GCLK
     TC3_REGS->COUNT8.TC_CTRLA = TC_CTRLA_MODE_COUNT8 | TC_CTRLA_PRESCALER_DIV1024;
-    TC3_REGS->COUNT8.TC_CC[0] = 0xFF;
+    TC3_REGS->COUNT8.TC_CC[0] = 0x3;
 
     while (TC3_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
         ;
@@ -50,10 +49,22 @@ void initTC3(void) {
 }
 #include "utility.hpp"
 void TC3_Handler(void) {
-    static uint8_t curr_addr = 0;
-    static uint8_t color0 = 0;
+    // Disable TC3
+    TC3_REGS->COUNT16.TC_CTRLA &= ~TC_CTRLA_ENABLE_Msk;
+    while (TC3_REGS->COUNT16.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
+        ;
+    TC3_REGS->COUNT8.TC_COUNT = 0; // Reset counter to zero
+    while (TC3_REGS->COUNT8.TC_SYNCBUSY)
+        ; // Wait for sync
+    util::timingPulseOn();
     Display::draw();
-    if (TC3_REGS->COUNT8.TC_INTFLAG & TC_INTFLAG_MC0_Msk) {
-        TC3_REGS->COUNT8.TC_INTFLAG = TC_INTFLAG_MC0_Msk; // Clear interrupt
+    util::timingPulseOff();
+
+    if (TC3_REGS->COUNT8.TC_INTFLAG & TC_INTFLAG_MC0(1)) {
+        TC3_REGS->COUNT8.TC_INTFLAG = TC_INTFLAG_MC0(1); // Clear interrupt
     }
+    // Enable TC3
+    TC3_REGS->COUNT8.TC_CTRLA |= TC_CTRLA_ENABLE_Msk;
+    while (TC3_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_ENABLE_Msk)
+        ;
 }

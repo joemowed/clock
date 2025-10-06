@@ -25,7 +25,7 @@ inline RegBits generate_reg_bits3(const uint32_t value, const uint32_t offset) {
     const uint32_t clear_bits = (~set_bits) & address_msk;
     return {set_bits, clear_bits};
 }
-inline RegBits generate_reg_bits4(const uint32_t value, const uint32_t offset) {
+inline RegBits generateRegBits4(const uint32_t value, const uint32_t offset) {
 
     uint32_t generated_msk = util::generateMask(4);
 
@@ -35,7 +35,7 @@ inline RegBits generate_reg_bits4(const uint32_t value, const uint32_t offset) {
     const uint32_t clear_bits = (~set_bits) & address_msk;
     return {set_bits, clear_bits};
 }
-inline void write_bits(port_group_registers_t &port, const RegBits bits) {
+inline void writeBits(port_group_registers_t &port, const RegBits bits) {
     port.PORT_OUTSET = bits.set;
     port.PORT_OUTCLR = bits.clear;
 }
