@@ -83,6 +83,9 @@ void Display::updatePixel(uint8_t color, uint8_t pixel_pos, uint8_t line_num) {
     color = validate_color(color);
     pixel_pos = (pixel_pos >= line_size) ? 0 : pixel_pos;
     line_num = (line_num >= line_count) ? 0 : line_num;
+    if (pixel_pos >= line_size || line_num >= line_count) {
+        color = 0x0;
+    }
     Display::disp_buffer.at(line_num).at(pixel_pos) = color;
 }
 
