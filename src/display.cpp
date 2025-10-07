@@ -25,7 +25,7 @@ void Display::init_port_a() {
     util::port_a.PORT_DIR = reg;
 }
 
-uint8_t Display::validate_color(uint8_t color) {
+uint8_t Display::validateColor(uint8_t color) {
     if (color > 0b111) {
         // max 3 bit color
         color = 0b111;
@@ -42,10 +42,10 @@ void Display::init() {
     init_port_b();
 }
 void Display::drawLines(uint8_t line_num) {
-
+    outputOff();
     writeAddress(line_num);
-    const Line &upper_line = disp_buffer.at(line_num + 16);
-    const Line &lower_line = disp_buffer.at(line_num);
+    Line &upper_line = disp_buffer.at(line_num + 16);
+    Line &lower_line = disp_buffer.at(line_num);
 
     for (int i = 0; i < line_size; i++) {
         uint8_t upper_color = upper_line.at(i);
@@ -59,6 +59,7 @@ void Display::drawLines(uint8_t line_num) {
         clock();
     }
     latch();
+    outputOn();
 }
 inline void Display::drawPixels(uint8_t upper_color, uint8_t lower_color) {
     lower_color = (lower_color > 0b111) ? 0b111 : lower_color;
@@ -80,7 +81,7 @@ void Display::draw() {
     Display::drawLines(curr_draw_line_num++);
 }
 void Display::updatePixel(uint8_t color, uint8_t pixel_pos, uint8_t line_num) {
-    color = validate_color(color);
+    color = validateColor(color);
     pixel_pos = (pixel_pos >= line_size) ? 0 : pixel_pos;
     line_num = (line_num >= line_count) ? 0 : line_num;
     if (pixel_pos >= line_size || line_num >= line_count) {
@@ -96,17 +97,16 @@ void Display::fill(uint8_t color) {
         }
     }
 }
-void Display::clock() {
-    // stopPWM();
+void Display::outputOff() {
+
     util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(0);
     util::port_b.PORT_OUTSET = OE_pin;
-    pulsePortB(clock_pin);
-    util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(1);
-    // startPWM();
 }
+void Display::outputOn() { util::port_b.PORT_PINCFG[11] = PORT_PINCFG_PMUXEN(1); }
+void Display::clock() { pulsePortB(clock_pin); }
 void Display::latch() { pulsePortB(latch_pin); }
 void delayLoop() {
-    for (volatile int i = 0; i < 1; i += 1) {
+    for (volatile int i = 0; i < 1; i += 0xFFFF) {
     }
 }
 void Display::pulsePortB(const uint32_t pin) {
@@ -117,10 +117,12 @@ void Display::pulsePortB(const uint32_t pin) {
 }
 
 void Display::writeAddress(uint8_t addr) {
+
     // clamp addr to 4 bit max
     if (addr > 0xF) {
         addr = 0xF;
     }
-    auto bits = util::generateRegBits4(addr, 6);
-    util::writeBits(util::port_a, bits);
+    constexpr const uint32_t addr_msk = 0b1111 << 6;
+    util::port_a.PORT_OUTCLR = addr_msk;
+    util::port_a.PORT_OUTSET = addr << 6;
 }

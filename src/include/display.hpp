@@ -25,7 +25,7 @@ class Display {
     static void select_line(uint8_t line_num);
     static void init_port_a();
     static void init_port_b();
-    static uint8_t validate_color(uint8_t color);
+    static uint8_t validateColor(uint8_t color);
     static void drawLines(uint8_t line_num);
     static void drawPixels(uint8_t upper_color, uint8_t lower_color);
     static const uint32_t clock_pin = PORT_PB10;
@@ -37,4 +37,6 @@ class Display {
     static void pulsePortB(const uint32_t pin);
     static void writeAddress(uint8_t addr);
     static uint8_t curr_draw_line_num;
+    static void outputOff();
+    static void outputOn();
 };
