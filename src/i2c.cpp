@@ -92,7 +92,16 @@ uint8_t I2C::read(const uint8_t addr) {
     stop();                                   // revert bus to idle state
     return ret;
 }
+void I2C::write(const uint8_t addr, const uint8_t value) {
 
+    writeAddressWrite(); // start transaction
+    waitForMB();         // wait for ACK from slave
+    I2C::send(addr);     // send address to slave
+    waitForMB();         // wait for ACK from slave
+    I2C::send(value);    // send value to slave
+    waitForMB();         // wait for ACK from slave
+    stop();              // revert bus to idle state
+}
 void I2C::waitForMB() {
     while (!util::checkBit(i2c_regs.SERCOM_INTFLAG, SERCOM_I2CM_INTFLAG_MB_Msk))
         ;

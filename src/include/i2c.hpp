@@ -14,7 +14,7 @@ class I2C {
     static void write(const uint8_t addr, const uint8_t value);
     static void send(const uint8_t value);
 
-    // private:
+  private:
     static void stop();
     static void waitForSync();
     static void gclk1Init();

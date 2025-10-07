@@ -18,7 +18,8 @@ void loadLouie(const int8_t x_offset, const int8_t y_offset) {
 int main(void) {
     I2C::init();
     volatile uint8_t i = I2C::read(0x0);
-    i = I2C::read(0x5);
+    I2C::write(0x0, 1 << 7);
+    i = I2C::read(0x0);
     Display::init();
     loadLouie(32, -2);
     Font::drawStr("JOHNNY", 6, 0x5, 0, 0);
