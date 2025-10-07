@@ -8,7 +8,7 @@ void I2C::gclk1Init(void) {
         ; // Wait for sync
 
     // Set Division factor: 48 MHz / 4 = 12 MHz
-    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(32) |  // Divide input by 4
+    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(16) |  // Divide input by 4
                                  GCLK_GENCTRL_SRC_DFLL | // Source = DFLL (48 MHz)
                                  GCLK_GENCTRL_GENEN(1);  // Enable generator
 

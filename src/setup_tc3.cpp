@@ -7,7 +7,6 @@
 void configureGCLKForTC3(void) {
     // Enable APB clock for TC3
     MCLK_REGS->MCLK_APBBMASK |= MCLK_APBBMASK_TC3(1);
-
     // Configure GCLK0 (already running at 48 MHz typically)
     // Connect GCLK0 to TC3
     GCLK_REGS->GCLK_PCHCTRL[TC3_GCLK_ID] = GCLK_PCHCTRL_GEN_GCLK0 | // Use GCLK0 (48 MHz)
@@ -31,7 +30,7 @@ void initTC3(void) {
         ;
 
     TC3_REGS->COUNT8.TC_CTRLA = TC_CTRLA_MODE_COUNT8 | TC_CTRLA_PRESCALER_DIV1024;
-    TC3_REGS->COUNT8.TC_CC[0] = 0xF;
+    TC3_REGS->COUNT8.TC_CC[0] = 0x4;
 
     while (TC3_REGS->COUNT8.TC_SYNCBUSY & TC_SYNCBUSY_CC0_Msk)
         ;
@@ -56,9 +55,7 @@ void TC3_Handler(void) {
     TC3_REGS->COUNT8.TC_COUNT = 0; // Reset counter to zero
     while (TC3_REGS->COUNT8.TC_SYNCBUSY)
         ; // Wait for sync
-    util::timingPulseOn();
     Display::draw();
-    util::timingPulseOff();
 
     if (TC3_REGS->COUNT8.TC_INTFLAG & TC_INTFLAG_MC0(1)) {
         TC3_REGS->COUNT8.TC_INTFLAG = TC_INTFLAG_MC0(1); // Clear interrupt

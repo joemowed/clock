@@ -16,8 +16,9 @@ Font::DecompChar Font::getChar(uint8_t chararcter) {
     return ret;
 }
 void Font::drawStr(char *str, const uint8_t len, const uint8_t color, const uint8_t x_offset, const uint8_t line) {
+    uint8_t y_offset = (7 * line) + (5 * line); // 0 for line 1
     for (int i = 0; i < len; i++) {
-        drawChar(str[i], color, x_offset + (i * 6), line * 8);
+        drawChar(str[i], color, x_offset + (i * 6), y_offset);
     }
 }
 

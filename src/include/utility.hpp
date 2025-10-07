@@ -43,4 +43,5 @@ inline void writeBits(port_group_registers_t &port, const RegBits bits) {
 }
 inline void timingPulseOn() { util::port_a.PORT_OUTSET = PORT_PA15; }
 inline void timingPulseOff() { util::port_a.PORT_OUTCLR = PORT_PA15; }
+inline void timingPulseToggle() { util::port_a.PORT_OUTTGL = PORT_PA15; }
 } // namespace util

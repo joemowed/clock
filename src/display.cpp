@@ -8,6 +8,13 @@ uint8_t Display::brightness = 180;
 // 5 is a good min brightness
 uint8_t Display::curr_draw_line_num = 0;
 
+void Display::setBrightness(uint8_t brightness) {
+    if (brightness == Display::brightness) {
+        return; // do nothing if no change
+    }
+    Display::brightness = brightness;
+    initTC5();
+}
 void Display::init_port_b() {
     util::port_b.PORT_DIRSET = clock_pin;
     util::port_b.PORT_DIRSET = OE_pin;

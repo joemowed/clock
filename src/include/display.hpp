@@ -19,6 +19,7 @@ class Display {
     static void updatePixel(uint8_t color, uint8_t pixel_pos, uint8_t line_num);
     static void draw();
     static void fill(uint8_t color);
+    static void setBrightness(uint8_t brightness);
 
   private:
     static BitMap disp_buffer;

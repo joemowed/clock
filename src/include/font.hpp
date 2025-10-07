@@ -11,7 +11,7 @@ class Font {
     using DecompChar = std::array<uint8_t, 8>;
     static DecompChar getChar(uint8_t character);
 
-    static void drawStr(char *str, const uint8_t len, const uint8_t color, const uint8_t x_offset, const uint8_t y_offset);
+    static void drawStr(char *str, const uint8_t len, const uint8_t color, const uint8_t x_offset, const uint8_t line);
 
     static void drawChar(const uint8_t character, const uint8_t color, const uint8_t x_offset, const uint8_t y_offset);
 

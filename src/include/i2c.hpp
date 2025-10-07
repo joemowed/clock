@@ -1,7 +1,7 @@
 #include "samd51j20a.h"
 #include <cstdint>
 class I2C {
-    constexpr static uint8_t BAUD = 150;
+    constexpr static uint8_t BAUD = 1;
     constexpr static uint8_t ADDRESS = 0x6F; // 7 bits
 
   public:

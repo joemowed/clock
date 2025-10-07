@@ -20,6 +20,14 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "DEBUG")
 endif()
 
+if(CMAKE_BUILD_TYPE MATCHES DEBUG)
+    # Enable compile command to ease indexing with e.g. clangd
+    set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+endif()
+if(CMAKE_BUILD_TYPE MATCHES RELEASE)
+    # Disable compile command to ease indexing with e.g. clangd
+    set(CMAKE_EXPORT_COMPILE_COMMANDS FALSE)
+endif()
 project(clock VERSION 1.0
     DESCRIPTION ""
     LANGUAGES C CXX)
@@ -29,8 +37,6 @@ project(clock VERSION 1.0
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
 
-# Enable compile command to ease indexing with e.g. clangd
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 # Enable CMake support for ASM and C languages
 enable_language(CXX ASM)
