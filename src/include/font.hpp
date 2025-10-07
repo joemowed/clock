@@ -11,6 +11,10 @@ class Font {
     using DecompChar = std::array<uint8_t, 8>;
     static DecompChar getChar(uint8_t character);
 
+    static void drawStr(char *str, const uint8_t len, const uint8_t color, const uint8_t x_offset, const uint8_t y_offset);
+
+    static void drawChar(const uint8_t character, const uint8_t color, const uint8_t x_offset, const uint8_t y_offset);
+
   private:
     static constexpr const uint32_t START_OFFSET = '\000';
     static constexpr const std::array<uint8_t, FONT_ARRAY_LENGTH> COMPRESSED_FONT_ARRAY = {

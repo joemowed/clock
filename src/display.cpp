@@ -4,7 +4,8 @@
 #include <utility.hpp>
 
 Display::BitMap Display::disp_buffer;
-uint8_t Display::brightness = 30;
+uint8_t Display::brightness = 180;
+// 5 is a good min brightness
 uint8_t Display::curr_draw_line_num = 0;
 
 void Display::init_port_b() {
@@ -40,6 +41,7 @@ void Display::init() {
     initTC5();
     init_port_a();
     init_port_b();
+    fill(0x0);
 }
 void Display::drawLines(uint8_t line_num) {
     outputOff();
