@@ -4,7 +4,7 @@
 #include <utility.hpp>
 
 Display::BitMap Display::disp_buffer;
-uint8_t Display::brightness = 50;
+uint8_t Display::brightness = 30;
 uint8_t Display::curr_draw_line_num = 0;
 
 void Display::init_port_b() {
@@ -110,9 +110,9 @@ void delayLoop() {
     }
 }
 void Display::pulsePortB(const uint32_t pin) {
-    delayLoop();
+    // delayLoop();
     util::port_b.PORT_OUTSET = pin;
-    delayLoop();
+    // delayLoop();
     util::port_b.PORT_OUTCLR = pin;
 }
 
