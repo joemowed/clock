@@ -3,6 +3,8 @@ namespace util {
 inline port_group_registers_t &port_a = PORT_REGS->GROUP[0];
 inline port_group_registers_t &port_b = PORT_REGS->GROUP[1];
 
+inline sercom_i2cm_registers_t &i2c_regs = SERCOM1_REGS->I2CM;
+inline bool checkBit(const uint32_t reg, const uint32_t msk) { return ((reg & msk) == msk); }
 consteval inline uint32_t generateMask(const uint32_t length) {
     uint32_t generated_msk = 0;
     for (uint32_t i = 0; i < length; i++) {

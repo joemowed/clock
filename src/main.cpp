@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <display.hpp>
 #include <font.hpp>
+#include <i2c.hpp>
 #include <samd51j20a.h>
 #include <transcode.hpp>
 #include <utility.hpp>
@@ -14,8 +15,10 @@ void loadLouie(const int8_t x_offset, const int8_t y_offset) {
         }
     }
 }
-
 int main(void) {
+    I2C::init();
+    volatile uint8_t i = I2C::read(0x0);
+    i = I2C::read(0x5);
     Display::init();
     loadLouie(32, -2);
     Font::drawStr("JOHNNY", 6, 0x5, 0, 0);
