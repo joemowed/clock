@@ -24,7 +24,7 @@ class Draw {
     static void drawDay();
     static void updateBrightness();
     static RTC::RTCData time;
-    constexpr static std::array<char[4], 7> WK_DAYS = {"MON", "TUE", "WED", "THR", "FRI", "SAT", "SUN"};
+    constexpr static std::array<char[4], 7> WK_DAYS = {"SUN", "MON", "TUE", "WED", "THR", "FRI", "SAT"};
     constexpr static std::array<char[4], 12> MONTHS = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
     static uint8_t digitToASCII(const uint8_t value);
 };

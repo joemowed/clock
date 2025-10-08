@@ -1,39 +1,33 @@
 
 
-
-GraphedExpression="green_value", DisplayFormat=DISPLAY_FORMAT_DEC, Color=#e56a6f, Show=0
-OpenDocument="display.cpp", FilePath="/home/jmaloney/Documents/clock/src/display.cpp", Line=93
-OpenDocument="utility.hpp", FilePath="/home/jmaloney/Documents/clock/src/include/utility.hpp", Line=6
-OpenDocument="main.cpp", FilePath="/home/jmaloney/Documents/clock/src/main.cpp", Line=10
-OpenDocument="setup_tc3.cpp", FilePath="/home/jmaloney/Documents/clock/src/setup_tc3.cpp", Line=32
-OpenDocument="_exit.c", FilePath="/build/newlib-38V0JC/newlib-4.4.0.20231231/libgloss/libnosys/_exit.c", Line=0
-OpenDocument="array", FilePath="/usr/include/newlib/c++/13.2.1/array", Line=214
-OpenDocument="startup_samd51j20a.cpp", FilePath="/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp", Line=366
-OpenDocument="transcode.cpp", FilePath="/home/jmaloney/Documents/clock/src/transcode.cpp", Line=1
-OpenDocument="_mallocr.c", FilePath="/build/newlib-38V0JC/newlib-4.4.0.20231231/newlib/libc/stdlib/_mallocr.c", Line=0
+Breakpoint=/home/jmaloney/Documents/clock/src/rtc.cpp:42:12, State=BP_STATE_DISABLED
+OpenDocument="startup_samd51j20a.cpp", FilePath="/home/jmaloney/Documents/clock/samd51/DFP/src/startup_samd51j20a.cpp", Line=338
+OpenDocument="draw.cpp", FilePath="/home/jmaloney/Documents/clock/src/draw.cpp", Line=15
+OpenDocument="array", FilePath="/usr/include/newlib/c++/13.2.1/array", Line=213
+OpenDocument="display.cpp", FilePath="/home/jmaloney/Documents/clock/src/display.cpp", Line=49
+OpenDocument="utility.hpp", FilePath="/home/jmaloney/Documents/clock/src/include/utility.hpp", Line=9
+OpenDocument="i2c.cpp", FilePath="/home/jmaloney/Documents/clock/src/i2c.cpp", Line=66
+OpenDocument="main.cpp", FilePath="/home/jmaloney/Documents/clock/src/main.cpp", Line=24
+OpenDocument="rtc.cpp", FilePath="/home/jmaloney/Documents/clock/src/rtc.cpp", Line=9
 OpenToolbar="Debug", Floating=0, x=0, y=0
-OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=1, w=824, h=466, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=1, w=850, h=491, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VectorCatchIndexMask=255
-OpenWindow="Local Data", DockArea=RIGHT, x=0, y=0, w=824, h=527, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Watched Data 1", DockArea=LEFT, x=0, y=0, w=850, h=502, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=1, w=824, h=469, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=1, w=850, h=492, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VectorCatchIndexMask=0
+OpenWindow="Local Data", DockArea=RIGHT, x=0, y=0, w=824, h=524, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Watched Data 1", DockArea=LEFT, x=0, y=0, w=850, h=501, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 OpenWindow="Terminal", DockArea=BOTTOM, x=1, y=0, w=1386, h=318, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 OpenWindow="Console", DockArea=BOTTOM, x=0, y=0, w=1168, h=318, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 SmartViewPlugin="", Page="", Toolbar="Hidden", Window="SmartView 1"
-TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[131;157;536;113;146;100]
+TableHeader="Vector Catches", SortCol="", SortOrder="ASCENDING", VisibleCols=["";"Vector Catch";"Description"], ColWidths=[50;300;500]
+TableHeader="Break & Tracepoints", SortCol="", SortOrder="ASCENDING", VisibleCols=["";"Type";"Location";"Extras"], ColWidths=[100;100;131;519]
+TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[216;196;536;113;146;100]
 TableHeader="Power Sampling", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
 TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
 TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;1428]
 TableHeader="Local Data", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Access";"Scope"], ColWidths=[306;367;113;100;223;100;100]
-TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh";"Access"], ColWidths=[236;248;113;100;138]
-TableHeader="Vector Catches", SortCol="", SortOrder="ASCENDING", VisibleCols=["";"Vector Catch";"Description"], ColWidths=[50;300;500]
-TableHeader="Break & Tracepoints", SortCol="", SortOrder="ASCENDING", VisibleCols=["";"Type";"Location";"Extras"], ColWidths=[100;100;131;519]
-WatchedExpression="curr_draw_line_num ", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="line_count", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="line_count", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="line_count", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="void", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="ret", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="green_value", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="blue_value", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="red_value", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
-WatchedExpression="disp_buffer", DisplayFormat=DISPLAY_FORMAT_BINARY, Window=Watched Data 1
+TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh";"Access"], ColWidths=[236;248;113;253;100]
+WatchedExpression="readMe", DisplayFormat=DISPLAY_FORMAT_DEC, Window=Watched Data 1
+WatchedExpression="i", DisplayFormat=DISPLAY_FORMAT_DEC, Window=Watched Data 1
+WatchedExpression="int", DisplayFormat=DISPLAY_FORMAT_DEC, Window=Watched Data 1
+WatchedExpression="int", DisplayFormat=DISPLAY_FORMAT_DEC, Window=Watched Data 1
+WatchedExpression="time", DisplayFormat=DISPLAY_FORMAT_DEC, Window=Watched Data 1
+WatchedExpression="ret", DisplayFormat=DISPLAY_FORMAT_DEC, Window=Watched Data 1
