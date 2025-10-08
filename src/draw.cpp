@@ -55,7 +55,7 @@ void Draw::hourlyReset() {
 void Draw::updateBrightness() {
     const uint8_t hour = (time.hour_tens * 10) + time.hour_ones;
     const uint8_t min = (time.min_tens * 10) + time.min_ones;
-    if ((hour >= 10) && (time.PM = true)) {
+    if ((hour >= 10) && (time.PM == true)) {
         Display::setBrightness(BRIGHTNESS_LOW); // low brightness at 10PM
         return;
     }
