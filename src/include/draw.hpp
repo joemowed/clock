@@ -17,8 +17,10 @@ class Draw {
     static bool initialized;
     static void init();
     static void drawTime();
+    static uint8_t reset_hour;
     static void drawLouie();
     static void drawDate();
+    static void hourlyReset();
     static void drawDay();
     static void updateBrightness();
     static RTC::RTCData time;

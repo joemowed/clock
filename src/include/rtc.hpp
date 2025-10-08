@@ -17,6 +17,7 @@ class RTC {
         uint8_t year_ones;
         uint8_t year_tens;
         bool PM;
+        uint8_t reset_hour;
     } RTCData;
     static void init();
     static void init(uint8_t sec, uint8_t min, uint8_t hour, uint8_t wkday, uint8_t date, uint8_t month, uint8_t year, bool PM);
@@ -28,12 +29,12 @@ class RTC {
     RTC(RTC &&) = delete;
     ~RTC() = delete;
     static RTCData now();
+    static void writeResetHour(const uint8_t reset_hour);
 
   private:
     static uint8_t getTens(const uint8_t value);
     static uint8_t getOnes(const uint8_t value);
     static uint8_t getTotal(const uint8_t tens, const uint8_t ones);
-    static uint8_t update_divisor;
     static bool checkDayLightSavings(const RTCData &time);
     static bool isTimeWithinRange(std::time_t time, std::time_t start, std::time_t end);
     static std::time_t makeTime(int year, int month, int day, int hour, int min, int sec);

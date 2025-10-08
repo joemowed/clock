@@ -6,6 +6,7 @@
 RTC::RTCData Draw::time = {};
 bool Draw::updateFlag = true;
 bool Draw::initialized = false;
+uint8_t Draw::reset_hour = 0;
 void Draw::drawLouie() {
     auto louie = Transcode::transcodeLouie();
     for (int y = 0; y < LOUIE_HEIGHT; y++) {
@@ -41,6 +42,15 @@ void Draw::update() {
     drawTime();
     drawDate();
     updateBrightness();
+    hourlyReset();
+}
+void Draw::hourlyReset() {
+
+    const uint8_t hour = (time.hour_tens * 10) + time.hour_ones;
+    if (time.reset_hour != hour) {
+        RTC::writeResetHour(hour);
+        NVIC_SystemReset();
+    }
 }
 void Draw::updateBrightness() {
     const uint8_t hour = (time.hour_tens * 10) + time.hour_ones;

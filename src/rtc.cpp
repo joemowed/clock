@@ -1,7 +1,6 @@
 #include <ctime>
 #include <i2c.hpp>
 #include <rtc.hpp>
-uint8_t RTC::update_divisor = 0;
 void RTC::init() { I2C::init(); }
 void RTC::init(uint8_t sec, uint8_t min, uint8_t hour, uint8_t wkday, uint8_t date, uint8_t month, uint8_t year, bool PM) {
     init();
@@ -13,6 +12,7 @@ void RTC::init(uint8_t sec, uint8_t min, uint8_t hour, uint8_t wkday, uint8_t da
     I2C::write(0x4, (getTens(date) << 4) | (getOnes(date) << 0));                                     // RTCDATE
     I2C::write(0x5, (getTens(month) << 4) | (getOnes(month) << 0));                                   // RTCMONTH
     I2C::write(0x6, (getTens(year) << 4) | (getOnes(year) << 0));                                     // RTCYEAR
+    I2C::write(0x20, 0);                                                                              // reset_hour
 }
 RTC::RTCData RTC::now() {
     RTCData ret = {};
@@ -23,6 +23,7 @@ RTC::RTCData RTC::now() {
     const uint8_t date_reg = I2C::read(0x4);
     const uint8_t month_reg = I2C::read(0x5);
     const uint8_t year_reg = I2C::read(0x6);
+    const uint8_t reset_hour_reg = I2C::read(0x20);
 
     ret.sec_ones = (sec_reg >> 0) & 0b1111;
     ret.sec_tens = (sec_reg >> 4) & 0b111;
@@ -38,9 +39,11 @@ RTC::RTCData RTC::now() {
     ret.year_ones = (year_reg >> 0) & 0b1111;
     ret.year_tens = (year_reg >> 4) & 0b1111;
     ret.PM = (hour_reg >> 5) & 0b1;
+    ret.reset_hour = (reset_hour_reg >> 0) & 0xFF;
 
     return ret;
 }
 uint8_t RTC::getOnes(uint8_t value) { return value % 10; }
 uint8_t RTC::getTens(uint8_t value) { return (value / 10) % 10; }
 uint8_t RTC::getTotal(uint8_t tens, uint8_t ones) { return (tens * 10) + ones; }
+void RTC::writeResetHour(const uint8_t reset_hour) { I2C::write(0x20, reset_hour); }
