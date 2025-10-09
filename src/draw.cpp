@@ -63,6 +63,9 @@ void Draw::updateBrightness() {
         return;
     }
     if (((hour >= 10) && (time.PM == true))) {
+        if (hour == 12) {
+            Display::setBrightness(BRIGHTNESS_HIGH);
+        }
         Display::setBrightness(BRIGHTNESS_LOW); // low brightness at 10PM
         return;
     }
