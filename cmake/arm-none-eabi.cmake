@@ -25,19 +25,16 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 #set(TARGET_FLAGS "-mcpu=cortex-m4 fpu=fpv5-sp-d16 -mfloat-abi=hard ")
 set(TARGET_FLAGS "-mcpu=cortex-m4")
-
-set(CMAKE_CXX_FLAGS "${TARGET_FLAGS}")
+set(CMAKE_C_FLAGS_RELEASE "-O0 -g0 -DNDEBUG")
+set(CMAKE_C_FLAGS_DEBUG "-O0 -g3")
+set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
+set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
+set(CMAKE_CXX_FLAGS "${TARGET_FLAGS} ${CMAKE_C_FLAGS}")
 #enable extra warnings
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra  -Wpedantic ")
 #enable more memory sectioning
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdata-sections -ffunction-sections")
 
-if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -g3")
-endif()
-if(CMAKE_BUILD_TYPE MATCHES RELEASE)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g0")
-endif()
 #unknown -MMD,-MP, -xassembler-with-cpp enables c header symbols when assembling .asm files
 set(CMAKE_ASM_FLAGS "${CMAKE_CXX_FLAGS} -xassembler-with-cpp -MMD -MP")
 #no run-time-type-info, no exeptions, no atomic statics

@@ -2,7 +2,7 @@
 device ATSAMD51J20A
 if SWD
 speed 4000
-loadfile ../build/clock.elf
+loadfile ../release/clock.elf
 r
 g
 exit
