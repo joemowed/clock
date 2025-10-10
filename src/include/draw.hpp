@@ -27,4 +27,6 @@ class Draw {
     constexpr static std::array<char[4], 7> WK_DAYS = {"SUN", "MON", "TUE", "WED", "THR", "FRI", "SAT"};
     constexpr static std::array<char[4], 12> MONTHS = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
     static uint8_t digitToASCII(const uint8_t value);
+    static bool isAfter10PM();
+    static bool isBefore645();
 };
