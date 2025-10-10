@@ -2,9 +2,8 @@
 #include <setup_tc3.hpp>
 #include <setup_tc5.hpp>
 #include <utility.hpp>
-
 Display::BitMap Display::disp_buffer;
-uint8_t Display::brightness = 180;
+uint8_t Display::brightness = 5;
 // 5 is a good min brightness
 uint8_t Display::curr_draw_line_num = 0;
 
