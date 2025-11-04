@@ -45,6 +45,7 @@ int main(void) {
     Display::init();
     RTC::init();
 
+    // I2C::write(0x2, (true << 6) | (false << 5) | ((1) << 4) | ((1) << 0)); // RTCHOUR
     // RTC::init(00, 9, 5, 2, 7, 10, 25, true);
     //  Font::drawStr(" THR", 6, 0x5, 3, 0);
     //  Font::drawStr("00:00", 6, 0x7, 3, 1);
