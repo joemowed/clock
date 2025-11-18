@@ -5,7 +5,7 @@ class Draw {
     constexpr static int8_t LOUIE_X_OFFSET = 33;
     constexpr static int8_t LOUIE_Y_OFFSET = -2;
     constexpr static uint8_t BRIGHTNESS_HIGH = 200;
-    constexpr static uint8_t BRIGHTNESS_LOW = 5;
+    constexpr static uint8_t BRIGHTNESS_LOW = 3;
     Draw() = delete;
     Draw(Draw &) = delete;
     Draw(Draw &&) = delete;
