@@ -26,6 +26,8 @@ class RTC {
     static constexpr const bool OSC_ENABLE = 1;
     static constexpr const bool BATT_BKP_ENABLE = 1;
     static constexpr const bool TWELVE_HR_MODE = 1;
+    static constexpr const bool TRIM_SIGN = 1;
+    static constexpr const uint8_t TRIM_VALUE = 21;
     RTC() = delete;
     RTC(RTC &) = delete;
     RTC(RTC &&) = delete;

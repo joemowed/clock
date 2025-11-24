@@ -12,7 +12,9 @@ void RTC::init(uint8_t sec, uint8_t min, uint8_t hour, uint8_t wkday, uint8_t da
     I2C::write(0x4, (getTens(date) << 4) | (getOnes(date) << 0));                                     // RTCDATE
     I2C::write(0x5, (getTens(month) << 4) | (getOnes(month) << 0));                                   // RTCMONTH
     I2C::write(0x6, (getTens(year) << 4) | (getOnes(year) << 0));                                     // RTCYEAR
-    I2C::write(0x20, 0);                                                                              // reset_hour
+    I2C::write(0x8, (TRIM_SIGN << 7) | (TRIM_VALUE));                                                 // OSCTRIM
+
+    // I2C::write(0x20, 0);                                                                              // reset_hour
 }
 void RTC::init(ProvideTime pt, uint8_t wkday, uint8_t month) { init(pt.get_seconds(), pt.get_minutes(), pt.get_hours(), wkday, pt.get_day(), month, pt.get_year(), pt.is_pm()); }
 RTC::RTCData RTC::now() {
