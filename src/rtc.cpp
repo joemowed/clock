@@ -14,6 +14,7 @@ void RTC::init(uint8_t sec, uint8_t min, uint8_t hour, uint8_t wkday, uint8_t da
     I2C::write(0x6, (getTens(year) << 4) | (getOnes(year) << 0));                                     // RTCYEAR
     I2C::write(0x20, 0);                                                                              // reset_hour
 }
+void RTC::init(ProvideTime pt, uint8_t wkday, uint8_t month) { init(pt.get_seconds(), pt.get_minutes(), pt.get_hours(), wkday, pt.get_day(), month, pt.get_year(), pt.is_pm()); }
 RTC::RTCData RTC::now() {
     RTCData ret = {};
     const uint8_t sec_reg = I2C::read(0x0);

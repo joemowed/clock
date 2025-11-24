@@ -40,23 +40,22 @@ void wdt_clear() {
         ;
 }
 #include <i2c.hpp>
+void noTrimSQEN() { I2C::write(0x7, (0b11 << 6) | (0b010)); }
 int main(void) {
     wdt_init();
     Display::init();
+
     RTC::init();
 
-    // I2C::write(0x2, (true << 6) | (false << 5) | ((1) << 4) | ((1) << 0)); // RTCHOUR
-    // RTC::init(00, 9, 5, 2, 7, 10, 25, true);
-    //  Font::drawStr(" THR", 6, 0x5, 3, 0);
-    //  Font::drawStr("00:00", 6, 0x7, 3, 1);
-    //  loadLouie(33, -2);
-    //  Font::drawStr("OCT 10", 6, 0x6, 0, 2);
+    // wkday -- sun = 1, mon = 2, tue = 3,......sat = 7
+    // month -- jan =1,feb =2.....dec =12
+    // RTC::init(ProvideTime(), 2, 11);
 
     while (true) {
         // util::timingPulseOn();
         Draw::update();
         wdt_clear();
-        // util::timingPulseOff();
+        //  util::timingPulseOff();
     }
     return 0;
 }

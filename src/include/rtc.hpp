@@ -1,3 +1,4 @@
+#include "provide_time.hpp"
 #include <cstdint>
 #include <ctime>
 class RTC {
@@ -20,6 +21,7 @@ class RTC {
         uint8_t reset_hour;
     } RTCData;
     static void init();
+    static void init(ProvideTime pt, uint8_t wkday, uint8_t month);
     static void init(uint8_t sec, uint8_t min, uint8_t hour, uint8_t wkday, uint8_t date, uint8_t month, uint8_t year, bool PM);
     static constexpr const bool OSC_ENABLE = 1;
     static constexpr const bool BATT_BKP_ENABLE = 1;
