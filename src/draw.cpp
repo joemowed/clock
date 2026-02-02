@@ -53,10 +53,11 @@ void Draw::hourlyReset() {
         NVIC_SystemReset();
     }
 }
-bool Draw::isAfter10PM() {
+bool Draw::isNight() {
+    const uint8_t night_hour = 10;
     const uint8_t hour_ones = time.hour_ones;
     const uint8_t hour = (time.hour_tens * 10) + hour_ones;
-    if ((hour >= 10) && time.PM) {
+    if ((hour >= night_hour) && time.PM) {
         if (hour == 12) {
             // 12PM not at night time
             return false;
@@ -65,16 +66,17 @@ bool Draw::isAfter10PM() {
     }
     return false;
 }
-bool Draw::isBefore645() {
-
+bool Draw::isMorning() {
+    const uint8_t morning_hour = 7;
+    const uint8_t morning_minutes = 30;
     const uint8_t hour_ones = time.hour_ones;
     const uint8_t hour = (time.hour_tens * 10) + hour_ones;
     const uint8_t min = (time.min_tens * 10) + time.min_ones;
     if ((hour == 12) && time.PM == false) {
         return true;
     }
-    if ((hour <= 6) && time.PM == false) {
-        if ((hour == 6) && (min >= 45)) {
+    if ((hour <= morning_hour) && time.PM == false) {
+        if ((hour == morning_hour) && (min >= morning_minutes)) {
             return false;
         } else {
             return true;
@@ -83,11 +85,11 @@ bool Draw::isBefore645() {
     return false;
 }
 void Draw::updateBrightness() {
-    if (isAfter10PM()) {
+    if (isNight()) {
         Display::setBrightness(BRIGHTNESS_LOW);
         return;
     }
-    if (isBefore645()) {
+    if (isMorning()) {
         Display::setBrightness(BRIGHTNESS_LOW);
         return;
     }
