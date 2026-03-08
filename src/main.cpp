@@ -49,7 +49,7 @@ int main(void) {
 
     // wkday -- sun = 1, mon = 2, tue = 3,......sat = 7
     // month -- jan =1,feb =2.....dec =12
-    // RTC::init(ProvideTime(), 2, 11);
+    // RTC::init(ProvideTime(), 1, 3);
 
     while (true) {
         // util::timingPulseOn();
